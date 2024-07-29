@@ -70,3 +70,24 @@ Navigate to the project directory and use Docker Compose to start the applicatio
     docker-compose up
     ```
     - Now, review the resources you are about to create, update, or delete to ensure they are what you expect
+
+## 🌐 Accessing the Application
+
+Open your directory and click on index.html file.
+
+**WindowManufacturingBot**
+![1](images/1.PNG)
+
+**User Ramish joins chat** 
+![2](images/2.PNG)
+
+**User Ramish asks query** 
+![2](images/3.PNG)
+
+**AI-LLM Generates a Response** 
+![3](images/4.PNG)
+
+
+
+## ⏹ Stopping the Application
+To stop the application, use `Ctrl+C` in the terminal where Docker Compose is running, or run `docker-compose down` in a separate
