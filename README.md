@@ -13,10 +13,10 @@ Window Manufacturing Chatbot is a web-based application designed to assist users
 
 This architecture facilitates a robust and scalable chatbot llm-based application, capable of handling multiple user interactions and maintaining context throughout the conversation.
 
-![Note](images/Architecture Diagram.PNG)
+![Note](images/Architecture Diagram.png)
 
 
-![Note](images/System Flowchart.PNG)
+![Note](images/System Flowchart.png)
 
 
 ## 💻 Technologies
