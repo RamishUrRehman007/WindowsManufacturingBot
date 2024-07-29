@@ -1,0 +1,2 @@
+docker-compose up -d postgres
+docker-compose exec postgres sh -c '/mnt/migration.sh -d window_manufacturing_bot'

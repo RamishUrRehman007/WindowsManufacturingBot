@@ -1,0 +1,1 @@
+CREATE DATABASE window_manufacturing_bot;

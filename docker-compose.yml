@@ -1,0 +1,70 @@
+version: "3.7"
+services:
+  api:
+    build: .
+    container_name: window_manufacturing_bot-api
+    ports:
+      - "${APP_PORT:-10000}:10000"
+    environment:
+      ENVIRONMENT: ${ENVIRONMENT}
+      ENABLE_RELOAD_UVICORN: ${ENABLE_RELOAD_UVICORN}
+      POSTGRES_URL: ${POSTGRES_URL}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_ISSUER: ${JWT_ISSUER}
+      CSRF_SECRET: ${CSRF_SECRET}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+      ROOT_PATH: ${ROOT_PATH}
+      OPEN_AI_API_KEY: ${OPEN_AI_API_KEY}
+      OPEN_AI_MODEL: ${OPEN_AI_MODEL}
+    volumes:
+      - ".:/srv"
+    networks:
+      - internal
+    hostname: api
+    depends_on:
+      - "postgres"
+  postgres:
+    image: postgres:13.3
+    container_name: window_manufacturing_bot-postgres
+    ports:
+      - "${HOST_DB_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    networks:
+      - internal
+    volumes:
+      - "./migrations:/mnt"
+      - ./0000_init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/postgresql/data
+  redis:
+    image: redis:7.0.2
+    container_name: window_manufacturing_bot-redis
+    ports:
+      - 6379:6379
+    networks:
+      - internal
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: window_manufacturing_bot-worker
+    environment:
+      ENABLE_RELOAD_UVICORN: ${ENABLE_RELOAD_UVICORN}
+      POSTGRES_URL: ${POSTGRES_URL}
+      ENABLE_TOKEN: ${ENABLE_TOKEN}
+      ROOT_PATH: ${ROOT_PATH}
+      OPEN_AI_API_KEY: ${OPEN_AI_API_KEY}
+      OPEN_AI_MODEL: ${OPEN_AI_MODEL}
+    volumes:
+      - ".:/srv"
+    networks:
+      - internal
+    depends_on:
+      - "postgres"
+      - "redis"
+volumes:
+  db_data: {}
+networks:
+  internal:
+    external: false

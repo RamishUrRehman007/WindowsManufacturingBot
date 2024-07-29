@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Chat</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Create Chat</h2>
+    <form id="createChatForm">
+      <div class="input-group">
+        <label for="chat_name">Chat Name:</label>
+        <input type="text" id="chat_name" name="chat_name" required>
+      </div>
+      <button type="submit">Create Chat</button>
+    </form>
+    <p id="message"></p>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const accessToken = urlParams.get('access_token');
+      const refreshToken = urlParams.get('refresh_token');
+      
+      if (accessToken && refreshToken) {
+        sessionStorage.setItem('access_token', accessToken);
+        sessionStorage.setItem('refresh_token', refreshToken);
+        console.log('Tokens stored in sessionStorage');
+      } else {
+        console.error('Tokens not found in URL');
+      }
+    });
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
