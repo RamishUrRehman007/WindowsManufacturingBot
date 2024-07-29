@@ -85,6 +85,13 @@ Navigate to the project directory and use Docker Compose to start the applicatio
 
 ## 🌐 Accessing the Application
 
+**Default Credentials**:
+
+    ```
+    email = ramish@test.com
+    password = Test@1234
+    ```
+
 Open your directory and click on index.html file.
 ![Front](images/front.PNG)
 
