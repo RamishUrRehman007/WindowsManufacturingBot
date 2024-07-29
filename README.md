@@ -45,6 +45,10 @@ Before you begin, ensure you have installed:
 
 ### ▶️ Step 2: Running the Application
 
+Note: Please make sure you define openai_api_key if you dont have no worries i sent this in a email
+![Note](images/note.PNG)
+
+
 Navigate to the project directory and use Docker Compose to start the application:
 
 1. **Build the Deployment Docker Image**:
@@ -70,10 +74,14 @@ Navigate to the project directory and use Docker Compose to start the applicatio
     docker-compose up
     ```
     - Now, review the resources you are about to create, update, or delete to ensure they are what you expect
+    ![Docker Containers](images/docker_containers.PNG)
+
 
 ## 🌐 Accessing the Application
 
 Open your directory and click on index.html file.
+![Front](images/front.PNG)
+
 
 **WindowManufacturingBot**
 ![1](images/1.PNG)
