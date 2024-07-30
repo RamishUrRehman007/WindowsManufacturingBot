@@ -64,6 +64,9 @@ Navigate to the project directory and use Docker Compose to start the applicatio
     ```
     
 2. **Run migration.sh and Create Tables Inside DB Container**:
+
+   Note: Before you run migration command, please make sure the selected End of Line Sequence is **LF**
+   ![Note1](images/note1.PNG)
    
     ```
     docker-compose exec postgres sh -c '/mnt/migration.sh -d window_manufacturing_bot'
@@ -74,7 +77,7 @@ Navigate to the project directory and use Docker Compose to start the applicatio
         docker-compose exec postgres sh -c 'chmod 777 mnt/migration.sh'
         ```
     
-3. **Build and Up All Containers**:
+4. **Build and Up All Containers**:
 
     ```
     docker-compose up
