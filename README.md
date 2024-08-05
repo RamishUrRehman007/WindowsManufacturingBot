@@ -51,7 +51,7 @@ Before you begin, ensure you have installed:
 
 ### ▶️ Step 2: Running the Application
 
-Note: Please make sure you define openai_api_key if you dont have no worries i sent this in a email
+Note: Please make sure you define openai_api_key.
 ![Note](images/note.PNG)
 
 
